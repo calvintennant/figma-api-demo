@@ -90,12 +90,11 @@ async function main() {
   let data = await resp.json();
 
   const doc = data.document;
-  const canvas = doc.children[0];
+  const canvas = doc;
   let html = '';
 
   for (let i=0; i<canvas.children.length; i++) {
-    const child = canvas.children[i]
-    if (child.name.charAt(0) === '#'  && child.visible !== false) {
+    if (child.visible !== false) {
       const child = canvas.children[i];
       preprocessTree(child);
     }
@@ -133,7 +132,7 @@ async function main() {
 
   for (let i=0; i<canvas.children.length; i++) {
     const child = canvas.children[i]
-    if (child.name.charAt(0) === '#' && child.visible !== false) {
+    if (child.visible !== false) {
       const child = canvas.children[i];
       figma.createComponent(child, images, componentMap);
       nextSection += `export class Master${child.name.replace(/\W+/g, "")} extends PureComponent {\n`;

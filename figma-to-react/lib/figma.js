@@ -148,7 +148,7 @@ export class ${name} extends PureComponent {
       nodeBounds = node.absoluteBoundingBox;
       const nx2 = nodeBounds.x + nodeBounds.width;
       const ny2 = nodeBounds.y + nodeBounds.height;
-      const parentBounds = parent.absoluteBoundingBox;
+      const parentBounds = parent.absoluteBoundingBox || nodeBounds;
       const px = parentBounds.x;
       const py = parentBounds.y;
 
